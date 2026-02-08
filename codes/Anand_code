@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int T;
+    printf("Testiin too: ");
+    scanf("%d", &T);
+
+    while (T--) {
+        long N, M;
+        printf("Electronii too(N), M: ");
+        scanf("%ld %ld", &N, &M);
+
+        long ans = 0;
+
+        if (N == 3) {
+            if (M == 0)
+                ans = 1;
+            else
+                ans = 0;
+        }
+        else {
+            if (M <= N - 3)
+                ans = N * (N -1) * (N - 2) / 6; //C(N, 3) buyu N electronoos 3 electron songoh
+            else
+                ans = 0;
+        }
+
+        printf("%ld\n", ans);
+    }
+
+    return 0;
+}
