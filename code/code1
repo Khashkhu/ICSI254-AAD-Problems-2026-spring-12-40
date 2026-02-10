@@ -1,1 +1,42 @@
-code
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int N, K;
+    cin >> N >> K;
+
+    vector<long long> A(N), B(N), D(N);
+
+    for(int i = 0; i < N; i++)
+        cin >> A[i];
+
+    for(int i = 0; i < N; i++) {
+        cin >> B[i];
+        D[i] = B[i] - A[i];
+    }
+
+    // 1. медиан олох
+    sort(D.begin(), D.end());
+
+    long long X = D[N/2];  // median
+
+    // 2. diff олох
+    vector<long long> diff(N);
+    for(int i = 0; i < N; i++)
+        diff[i] = llabs(D[i] - X);
+
+    // 3. diff-ийг буурахаар эрэмбэлэх
+    sort(diff.begin(), diff.end(), greater<long long>());
+
+    long long result = 0;
+
+    for(int i = K; i < N; i++)
+        result += diff[i];
+
+    cout << result << "\n";
+
+    return 0;
+}
