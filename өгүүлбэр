@@ -9,3 +9,23 @@
   diff[i] = |D[i] - X|
 Алхам 4.
   diff массивыг эрэмбэлээд хамгийн их К ширхэг diff-ыг өөрчилнө. Ингээд үлдсэн ялгаатай байдлыг нэмээд эцсийн хариу гарна.
+
+Жишээ 1:
+оролт:
+N = 8, K = 2
+A = {3 1 4 1 5 9 2 6}
+B = {8 5 10 4 7 15 3 20}
+D massiv uusgeh:
+D = {5 4 6 3 2 6 1 14}
+erembeleh:
+D = {1 2 3 4 5 6 6 14}
+edgeerees medianiig olj X toogoor songoj avah:
+median 4, 5 ali negiig songoj avna. 5-iig songoy
+
+D massivaas 5-iig hasaj diff massiv uusgeh:
+diff = {4 3 2 1 0 1 1 9}
+erembeleh:
+diff = {9 4 3 2 1 1 1 0}
+K = 2 uchraas ehnii 2 toog solino
+diff = {0 0 3 2 1 1 1 0}
+ylgaatai baidliin niilber n = 3+2+1+1+1 = 8.
