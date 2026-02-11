@@ -30,3 +30,7 @@ K = 2 uchraas ehnii 2 toog solino
 diff = {0 0 3 2 1 1 1 0}
 ylgaatai baidliin niilber n = 3+2+1+1+1 = 8.
 
+
+Хугацааны анализ:
+эрэмбэлэх үйлдлүүдийг O(nlogn) хугацаанд хийж бусад үйлдлийг O(n) хугацаанд хийнэ.
+Нийт: O(nlogn)
