@@ -1,6 +1,3 @@
-// Sarnai, B.Enhjin, Munhtsetseg, Nymdavaa
-
-
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -11,6 +8,13 @@ int neighbors[MAX]; // хэдэн хөрштэйг хадгална
 
 int check[MAX]; // 0 = очоогүй, 1 = DFS дотор, 2 = дууссан
 int n, m;
+
+// ирмэг нэмэх функц
+void addEdge(int u, int v) {
+    graph[u][neighbors[u]] = v;
+    neighbors[u]++;
+}
+
 
 bool dfs(int v) {
     check[v] = 1; // DFS дотор байгаа 
@@ -32,26 +36,36 @@ bool dfs(int v) {
 }
 
 int main() {
-    scanf("%d %d", &n, &m);
-    // графыг эхлээд хоосон болгоно
+    n = 10;
+
     for(int i = 0; i < n; i++) {
         neighbors[i] = 0;
         check[i] = 0;
     }
-    // графыг оруулна
-    for(int i = 0; i < m; i++) {
-        int u, v;
-        scanf("%d %d", &u, &v);
-        graph[u][neighbors[u]++] = v;
-    }
-    bool cycle = false; // цикл байгаа эсэхийг хадгалах хувьсагч
 
-    // бүх оройгоос DFS эхлүүлж шалгана
+    addEdge(0, 1);
+    addEdge(0, 9);
+    addEdge(0, 6);
+    addEdge(1, 3);
+    addEdge(9, 3);
+    addEdge(9, 6);
+    addEdge(6, 4);
+    addEdge(6, 5);
+    addEdge(4, 5);
+    addEdge(4, 8);
+    addEdge(5, 7);
+    addEdge(5, 8);
+    addEdge(7, 2);
+    addEdge(7, 8);
+    addEdge(8, 4);
+
+    bool cycle = false;
+
     for(int i = 0; i < n; i++) {
         if(check[i] == 0) {
             if(dfs(i)) {
-                cycle = true; // цикл олдсон тул
-                break; 
+                cycle = true;
+                break;
             }
         }
     }
