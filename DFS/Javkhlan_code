@@ -1,0 +1,27 @@
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'C'],
+    'C': ['A', 'B'],
+    'D': ['E'],
+    'E': ['D'],
+    'F': []
+}
+
+def dfs(node, visited, graph):
+    visited.add(node)
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs(neighbor, visited, graph)
+
+def count_connected_components(graph):
+    visited = set()
+    count = 0
+
+    for node in graph:
+        if node not in visited:
+            dfs(node, visited, graph)
+            count += 1
+
+    return count
+
+print("Holboost componentiin too:", count_connected_components(graph))
