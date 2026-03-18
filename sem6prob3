@@ -1,0 +1,32 @@
+#Anand(24b1num0908), Ankhbayar(24b1num0517), Khashkhuu(23b1num1401), Enkhjin(23b1num0874)
+from collections import deque
+
+def farthest_node(tree, start):
+    visited = set([start])
+    q = deque([(start, 0)])
+    max_dist = 0
+    farthest = start
+    while q:
+        node, dist = q.popleft()
+        if dist > max_dist:
+            max_dist = dist
+            farthest = node
+        for neighbor in tree[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                q.append((neighbor, dist + 1))
+    return farthest, max_dist
+
+if __name__ == "__main__":
+    tree = {
+        1: [2, 3],
+        2: [1, 4, 5],
+        3: [1],
+        4: [2],
+        5: [2, 6],
+        6: [5]
+    }
+    smallest_leaf = farthest_node(tree, 1)
+    answer = farthest_node(tree, smallest_leaf[0])
+    print('max distance=', answer[1])
+    print('node', answer[0], 'ees', smallest_leaf[0], 'hurtel')
